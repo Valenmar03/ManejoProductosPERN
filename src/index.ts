@@ -1,4 +1,5 @@
-import { sumar } from "./server"
+import server from './server';
 
-console.log('holi')
-sumar()
+server.listen(4000, () => {
+    console.log('Listening on port 4000...');
+})
