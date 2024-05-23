@@ -3,6 +3,10 @@ import { validationResult } from 'express-validator'
 import Product from '../models/Product.model'
 
 export const createProduct = async (req : Request, res : Response) => {
-    const product = await Product.create(req.body)
-    res.json({data: product}) 
+    try {
+        const product = await Product.create(req.body)
+        res.json({data: product}) 
+    } catch (error) {
+        console.log(error)
+    }
 }
