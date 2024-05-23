@@ -3,6 +3,7 @@ import { body, param } from "express-validator";
 import { handleInputErrors } from "./middleware";
 import {
    createProduct,
+   deleteProduct,
    getProductById,
    getProducts,
    updateProduct,
@@ -36,6 +37,7 @@ router.get(
 
 router.put(
    "/:id",
+   param("id").isInt().withMessage("Id not valid"),
    body("name").notEmpty().withMessage("Product cant be empty"),
    body("price")
       .isNumeric()
@@ -50,7 +52,15 @@ router.put(
 );
 
 router.patch("/:id", 
-    updateProductAvailability
+   param("id").isInt().withMessage("Id not valid"),
+   handleInputErrors,
+   updateProductAvailability
+)
+
+router.delete("/:id",
+   param("id").isInt().withMessage("Id not valid"),
+   handleInputErrors,
+   deleteProduct
 )
 
 export default router;
