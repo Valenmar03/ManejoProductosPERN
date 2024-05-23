@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { body } from "express-validator";
+import { handleInputErrors } from "./middleware";
 import { createProduct } from "./handlers/product";
 
 const router = Router();
@@ -18,7 +19,7 @@ router.post(
       .notEmpty()
       .custom((value) => value > 0)
       .withMessage("Price not valid"),
-
+    handleInputErrors,
    createProduct
 );
 
