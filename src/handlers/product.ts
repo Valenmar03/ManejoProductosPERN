@@ -1,7 +1,5 @@
 import { Request, Response} from 'express'
-import { validationResult } from 'express-validator'
 import Product from '../models/Product.model'
-import { AfterValidate } from 'sequelize-typescript'
 
 export const createProduct = async (req : Request, res : Response) => {
     try {
