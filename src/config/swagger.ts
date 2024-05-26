@@ -16,7 +16,7 @@ const options : swaggerJSDoc.Options = {
         }
     },
     apis:[
-        './src/router.ts'
+        './src/docs/**/*.yaml'
     ]
 }
 

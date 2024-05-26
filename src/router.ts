@@ -11,6 +11,54 @@ import {
 } from "./handlers/product";
 
 const router = Router();
+/**
+ * @swagger
+ *    components:
+ *       schemas:
+ *         Product: 
+ *             type: object
+ *             properties:
+ *                id: 
+ *                   type: integer
+ *                   description: The Product ID
+ *                   example: 1
+ *                name:
+ *                   type: string
+ *                   description: The Product name
+ *                   example: Monitor 24'
+ *                price:
+ *                   type: number
+ *                   description: The Product price
+ *                   example: 500
+ *                availability:
+ *                   type: boolean
+ *                   description: The Product availability
+ *                   example: true
+*/
+
+/**
+ * @swagger
+ *    /api/products:
+ *       get: 
+ *          summary: Get a List of Products
+ *          tags: 
+ *             - Products
+ *          description: Return a List with all the products
+ *          responses: 
+ *             200:
+ *                description: Successfull response
+ *                content: 
+ *                   application/json:
+ *                      schema:
+ *                         type: array
+ *                         items: 
+ *                            $ref: '#/components/schemas/Product'
+ *                         
+ * 
+ * 
+ * 
+ * 
+ */
 
 router.post(
    "/",
